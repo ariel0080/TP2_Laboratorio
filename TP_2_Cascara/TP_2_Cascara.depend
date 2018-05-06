@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1525466957 source:c:\users\abrinoli_mecon\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp2\tp_2_cascara\funciones.c
+	<stdio.h>
+	<conio.h>
+
+1525466941 source:c:\users\abrinoli_mecon\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp2\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525466215 c:\users\abrinoli_mecon\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp2\tp_2_cascara\funciones.h
+
