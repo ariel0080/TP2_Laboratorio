@@ -15,7 +15,9 @@ typedef struct {
  * @param lista el array se pasa como parametro.
  * @return el primer indice disponible
  */
-int obtenerEspacioLibre(EPersona lista[]);
+int obtenerEspacioLibre(EPersona lista[]); //lista
+
+
 
 /**
  * Obtiene el indice que coincide con el dni pasado por parametro.
@@ -27,21 +29,25 @@ int buscarPorDni(EPersona lista[], int dni);
 
 //FUNCIONES GRAFICAS
 
-void crearMenu(void);
+void crearMenu(void); // lista
 
 void crearGrafica (int,int,int);
 
 // FUNCIONES DE VALIDACION DE ENTRADA
 
-int validar (char[]);
+void hacerConsulta (int); //Lista 1nombre 2 edad 3 dni
 
-void hacerConsulta (char[], int);
+int validarInt (char[]); //listo
 
-float validadFloat (char[]);
+void leerDato(char[]);//listo
 
-char *validarChar (char[]);
+void HardCodeLista(EPersona[]); //Lista
 
-char *leerDato(void);
+void listarTodo(EPersona[]); //lista
+
+void vaciarLista(EPersona[]); //listo
+
+int contar_caracteres(char[]); //listo
 
 
 

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
+#define MAX_INT 2147483647
 
 
 int main()
@@ -8,6 +9,7 @@ int main()
     char seguir='s';
     int opcion=0;
     EPersona lista[20];
+    char dato[50];
 
     while(seguir=='s')
     {
@@ -19,13 +21,19 @@ int main()
         switch(opcion)
         {
             case 1:
-              aux = leerDato();
-              //system("cls");
-              printf("%s",aux);
+                HardCodeLista(lista);
+                //vaciarLista(lista);
+                listarTodo(lista);
+                system("pause");
+                printf("espaciolibre %d",obtenerEspacioLibre(lista));
+                system("pause");
+                system("cls");
+                hacerConsulta(1);
+                leerDato(dato);
+                printf("Ingresado: %s",dato);
+                printf("Lo ngresado tiene estos caracteres: %d",contar_caracteres(dato));
 
-              system("pause");
-
-
+                system("pause");
                 break;
             case 2:
                 break;

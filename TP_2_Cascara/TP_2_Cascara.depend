@@ -10,3 +10,16 @@
 
 1525466215 c:\users\abrinoli_mecon\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp2\tp_2_cascara\funciones.h
 
+1525647065 source:c:\users\administrador\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp02\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525648065 c:\users\administrador\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp02\tp_2_cascara\funciones.h
+
+1525647930 source:c:\users\administrador\dropbox\facultad - estudio\inicio tecnicatura superior en programación\laboratoio de programacion 1\prog_y_lab_i\tp02\tp_2_cascara\funciones.c
+	<stdio.h>
+	<conio.h>
+	"funciones.h"
+	<string.h>
+
