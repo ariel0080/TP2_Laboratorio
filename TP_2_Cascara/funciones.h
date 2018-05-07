@@ -10,6 +10,7 @@ typedef struct {
 
 }EPersona;
 
+
 /**
  * Obtiene el primer indice libre del array.
  * @param lista el array se pasa como parametro.
@@ -25,7 +26,7 @@ int obtenerEspacioLibre(EPersona lista[]); //lista
  * @param dni el dni a ser buscado en el array.
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
  */
-int buscarPorDni(EPersona lista[], int dni);
+int buscarPorDni(EPersona lista[], int dni); //lista
 
 //FUNCIONES GRAFICAS
 
@@ -48,6 +49,14 @@ void listarTodo(EPersona[]); //lista
 void vaciarLista(EPersona[]); //listo
 
 int contar_caracteres(char[]); //listo
+
+void Agregar_Persona(EPersona[], char[]);
+
+void borrar_Persona(EPersona[]);//listo
+
+void ordenar_x_Nombre(EPersona[], int); //listo
+
+
 
 
 

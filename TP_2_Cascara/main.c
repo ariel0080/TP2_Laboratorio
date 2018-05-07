@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
-#define MAX_INT 2147483647
+#define Personas 20
+
 
 
 int main()
 {
     char seguir='s';
     int opcion=0;
-    EPersona lista[20];
+    EPersona lista[Personas];
     char dato[50];
+
+    vaciarLista(lista);
+    HardCodeLista(lista);
+
+
 
     while(seguir=='s')
     {
@@ -21,7 +27,8 @@ int main()
         switch(opcion)
         {
             case 1:
-                HardCodeLista(lista);
+                Agregar_Persona(lista,dato);
+                /*HardCodeLista(lista);
                 //vaciarLista(lista);
                 listarTodo(lista);
                 system("pause");
@@ -33,11 +40,15 @@ int main()
                 printf("Ingresado: %s",dato);
                 printf("Lo ngresado tiene estos caracteres: %d",contar_caracteres(dato));
 
-                system("pause");
+                system("pause");*/
                 break;
             case 2:
+                borrar_Persona(lista);
                 break;
             case 3:
+                ordenar_x_Nombre(lista,Personas);
+                listarTodo(lista);
+                system("pause");
                 break;
             case 4:
                 break;
