@@ -50,9 +50,9 @@ void hacerConsulta (int tipoConsulta)
 
 void HardCodeLista(EPersona lista[])
 {
-    char hardNombre[][20]={"Juan Perez","Ricardo Fort", "Diego Maradona","Susana Gimenez","Diego Diaz","Boby Goma","Benji Price","Oliver Atom","Moni Argento","Pepe Argento","Marcelo Tinelli","Ragnar Lodbrok","Laguerta Lodbrok","Helge Doppler","Jonas Kahnwald","Mikkel Nielsen","Charlotte Doppler","Bartosz Tiedemann","Claudia Tiedemann","Katharina Nielsen"};
-    int hardEdad[] = {23,44,55,66,77,88,99,101,18,72,33,44,15,32,24,65,31,60,29,11};
-    int hardDni[] = {23726357,44927483,558263482,66826472,778294872,888273517,99222111,10122555,18999999,72555555,33555444,44444444,15323212,32212333,24212888,65555555,31323999,60657888,29456789,11827999};
+    char hardNombre[][20]={"Martha Nielsen","Mikkel Nielsen", "Katharina Nielsen","Tronte Nielsen","Agnes Nielsen","Jonas Kahnwald","Hannah Kahnwald","Daniel Kahnwald","Franziska Doppler","Elisabeth Doppler","Charlotte Doppler","Bernd Doppler","Greta Doppler","Bartosz Tiedemann","Regina Tiedemann","Claudia Tiedemann","Egon Tiedemann","Doris Tiedemann","Ines Kahnwald","Mads Nielsen"};
+    int hardEdad[] = {2,44,55,66,77,88,99,101,18,72,33,44,15,32,24,65,31,30,29,11};
+    int hardDni[] = {100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119};
 
     for(int i=0;i<20;i++)
     {
@@ -147,20 +147,11 @@ int indice=0;
     }else{
         return -1;
     }
-
-
-    while(lista[indice].dni!=dni && ++indice<20);
-
-    if(indice<20){
-        return indice-1;
-    }else{
-        return -1;
-    }
 }
 
-void Agregar_Persona(EPersona lista[], char dato[])
+void Agregar_Persona(EPersona lista[])
 {
-
+    char dato[50];
     int indice;
     indice = obtenerEspacioLibre(lista);
     if (indice == -1)
@@ -198,7 +189,7 @@ void Agregar_Persona(EPersona lista[], char dato[])
         {
                 lista[indice].dni = validarInt(dato);
                 lista[indice].estado =1;
-                printf("\n\nEl resultado de validar por dni es, %d\n\n",buscarPorDni(lista,validarInt(dato)));
+               // printf("\n\nEl resultado de validar por dni es, %d\n\n",buscarPorDni(lista,validarInt(dato)));
                 system("pause");
         }
         else
@@ -229,7 +220,7 @@ void borrar_Persona(EPersona lista[])
     indice = buscarPorDni(lista,validarInt(aux));
     if(indice!= -1)
     {
-        printf("\n\Esta seguro de eliminar el registro correspondiente a:\n");
+        printf("\nEsta seguro de eliminar el registro correspondiente a:\n");
         printf("%s\n",lista[indice].nombre);
         printf("Edad: %d\n",lista[indice].edad);
         printf("DNI: %d\n\n",lista[indice].dni);
@@ -249,7 +240,7 @@ void borrar_Persona(EPersona lista[])
 void ordenar_x_Nombre(EPersona lista[], int cantidad)
 {
 
-  int c, d;
+  int c, d,edad,estado,dni;
   char t[50];
 
   for (c = 0 ; c < ( cantidad - 1 ); c++)
@@ -260,8 +251,18 @@ void ordenar_x_Nombre(EPersona lista[], int cantidad)
       if (strcmp(lista[d].nombre,lista[d+1].nombre)>0)
       {
         strcpy(t,lista[d].nombre);
+        edad=lista[d].edad;
+        dni = lista[d].dni;
+        estado = lista[d].estado;
         strcpy(lista[d].nombre,lista[d+1].nombre);
+        lista[d].edad = lista[d+1].edad;
+        lista[d].dni = lista[d+1].dni;
+        lista[d].estado = lista[d+1].estado;
         strcpy(lista[d+1].nombre,t);
+        lista[d+1].edad = edad;
+        lista[d+1].dni =dni;
+        lista[d+1].estado=estado;
+
       }
     }
   }
@@ -269,21 +270,57 @@ void ordenar_x_Nombre(EPersona lista[], int cantidad)
 
 void crearGrafica (EPersona lista[])
 {
-    int x=0;
-    int y=0;
-    int z=0;
+    int vector_cantidades[3]={0,0,0};
+    int maximo;
+
 
     for(int i=0;i<Personas;i++)
     {
-        if (lista[i].edad <= 18) {x++}
-        if (lista[i].edad > 18 && lista[i].edad < 36) {y++}
-        if (lista[i].edad > 35) {z++}
+        if (lista[i].estado==1)
+        {
+            if (lista[i].edad <= 18) {vector_cantidades[0]++;}
+            if (lista[i].edad > 18 && lista[i].edad < 36) {vector_cantidades[1]++;}
+            if (lista[i].edad > 35) {vector_cantidades[2]++;}
+        }
+
     }
 
     system("cls");
-    printf("\n\tGRAFICA DE EDADES DE LAS PERSONAS EN EL REGISTRO DE DATOS\n\n\n\n\n");
+    printf("\nGRAFICA DE EDADES DE LAS PERSONAS EN EL REGISTRO DE DATOS\n");
+    printf("=========================================================\n\n\n\n");
 
+    maximo = vector_cantidades[0];
+
+    if (vector_cantidades[1]>maximo) maximo=vector_cantidades[1];
+    if (vector_cantidades[2]>maximo) maximo=vector_cantidades[2];
+
+     for(int i=maximo;i>=0;i--){
+        if((vector_cantidades[0]-i)>0){
+            printf("      ***      ||");
+        }else{
+            printf("               ||");
+        }
+        if((vector_cantidades[1]-i)>0){
+            printf("      ***      ||");
+        }else{
+            printf("               ||");
+        }
+        if((vector_cantidades[2]-i)>0){
+            printf("      ***       ");
+        }
+        printf("\n");
+    }
+    printf("=================================================\n");
+    printf(" Menores de 18 ||  entre 19-35  ||   Mayores 35\n\n");
+    printf("\nMenores de 18 a%cos: %d",164,vector_cantidades[0]);
+    printf("\t Entre 19 y 35 a%cos: %d",164,vector_cantidades[1]);
+    printf("\t Mayores de 35 a%cos: %d\n\n",164,vector_cantidades[2]);
+    system("pause");
 }
+
+
+
+
 
 
 

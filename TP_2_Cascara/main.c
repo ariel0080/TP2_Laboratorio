@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
-#define Personas 20
+
 
 
 
@@ -10,7 +10,6 @@ int main()
     char seguir='s';
     int opcion=0;
     EPersona lista[Personas];
-    char dato[50];
 
     vaciarLista(lista);
     HardCodeLista(lista);
@@ -27,20 +26,8 @@ int main()
         switch(opcion)
         {
             case 1:
-                Agregar_Persona(lista,dato);
-                /*HardCodeLista(lista);
-                //vaciarLista(lista);
-                listarTodo(lista);
-                system("pause");
-                printf("espaciolibre %d",obtenerEspacioLibre(lista));
-                system("pause");
-                system("cls");
-                hacerConsulta(1);
-                leerDato(dato);
-                printf("Ingresado: %s",dato);
-                printf("Lo ngresado tiene estos caracteres: %d",contar_caracteres(dato));
+                Agregar_Persona(lista);
 
-                system("pause");*/
                 break;
             case 2:
                 borrar_Persona(lista);
@@ -51,6 +38,7 @@ int main()
                 system("pause");
                 break;
             case 4:
+                crearGrafica (lista);
                 break;
             case 5:
                 seguir = 'n';
